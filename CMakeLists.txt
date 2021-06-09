@@ -5,7 +5,7 @@ project(stag_ros)
 add_compile_options(-std=c++14)
 set(CMAKE_BUILD_TYPE Release)
 
-find_package(OpenCV REQUIRED)
+find_package(OpenCV REQUIRED NO_MODULE PATHS /usr/local NO_DEFAULT_PATH)
 find_package(PkgConfig REQUIRED)
 
 ################
@@ -39,7 +39,7 @@ generate_messages(
 
 catkin_package(
   INCLUDE_DIRS include src/stag
-  LIBRARIES stag_ros
+  LIBRARIES stag_core
   CATKIN_DEPENDS camera_info_manager cv_bridge geometry_msgs image_transport message_generation message_runtime nodelet roscpp sensor_msgs std_msgs
 )
 
@@ -121,6 +121,9 @@ target_link_libraries(stag_node
 ###########
 # INSTALL #
 ###########
+install(DIRECTORY common/include/${PROJECT_NAME}/
+    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+    )
 
 install(FILES stag_nodelet.xml
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
@@ -137,3 +140,8 @@ install(TARGETS
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 )
+install(TARGETS stag_core
+    ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+    RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+    )
