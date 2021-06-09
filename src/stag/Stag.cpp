@@ -69,20 +69,20 @@ void Stag::checkDuplicate(Marker mrkr) {
   }
 }
 
-/*
 void Stag::logResults(string path)
 {
-        drawer.drawEdgeMap(path + "1 edges.png", image,
-edInterface.getEdgeMap()); drawer.drawLines(path + "2 lines.png", image,
-edInterface.getEDLines()); drawer.drawCorners(path + "3 corners.png", image,
-quadDetector.getCornerGroups()); drawer.drawQuads(path + "4 quads.png", image,
-quadDetector.getQuads()); if (keepLogs) drawer.drawQuads(path + "5 distorted
-quads.png", image, quadDetector.getDistortedQuads()); drawer.drawMarkers(path +
-"6 markers.png", image, markers); if (keepLogs) drawer.drawQuads(path + "7 false
-quads.png", image, falseCandidates); drawer.drawEllipses(path + "8
-ellipses.png", image, markers);
+  drawer.drawEdgeMap(path + "1 edges.png", image, edInterface.getEdgeMap());
+  drawer.drawLines(path + "2 lines.png", image, edInterface.getEDLines());
+  drawer.drawCorners(path + "3 corners.png", image, quadDetector.getCornerGroups());
+  drawer.drawQuads(path + "4 quads.png", image, quadDetector.getQuads());
+  if (keepLogs)
+    drawer.drawQuads(path + "5 distorted quads.png", image, quadDetector.getDistortedQuads());
+  drawer.drawMarkers(path + "6 markers.png", image, markers);
+  if (keepLogs)
+    drawer.drawQuads(path + "7 false quads.png", image, falseCandidates);
+  drawer.drawEllipses(path + "8 ellipses.png", image, markers);
 }
-*/
+
 
 Codeword Stag::readCode(const Quad &q) {
   // take readings from 48 code locations, 12 black border locations, and 12
@@ -94,23 +94,23 @@ Codeword Stag::readCode(const Quad &q) {
   for (int i = 0; i < 48; i++) {
     Mat projectedPoint = q.H * codeLocs[i];
     samples[i] = readPixelSafeBilinear(
-        image,
-        Point2d(projectedPoint.at<double>(0) / projectedPoint.at<double>(2),
-                projectedPoint.at<double>(1) / projectedPoint.at<double>(2)));
+          image,
+          Point2d(projectedPoint.at<double>(0) / projectedPoint.at<double>(2),
+                  projectedPoint.at<double>(1) / projectedPoint.at<double>(2)));
   }
   for (int i = 0; i < 12; i++) {
     Mat projectedPoint = q.H * blackLocs[i];
     samples[i + 48] = readPixelSafeBilinear(
-        image,
-        Point2d(projectedPoint.at<double>(0) / projectedPoint.at<double>(2),
-                projectedPoint.at<double>(1) / projectedPoint.at<double>(2)));
+          image,
+          Point2d(projectedPoint.at<double>(0) / projectedPoint.at<double>(2),
+                  projectedPoint.at<double>(1) / projectedPoint.at<double>(2)));
   }
   for (int i = 0; i < 12; i++) {
     Mat projectedPoint = q.H * whiteLocs[i];
     samples[i + 60] = readPixelSafeBilinear(
-        image,
-        Point2d(projectedPoint.at<double>(0) / projectedPoint.at<double>(2),
-                projectedPoint.at<double>(1) / projectedPoint.at<double>(2)));
+          image,
+          Point2d(projectedPoint.at<double>(0) / projectedPoint.at<double>(2),
+                  projectedPoint.at<double>(1) / projectedPoint.at<double>(2)));
   }
 
   // threshold the readings using Otsu's method
@@ -136,37 +136,37 @@ void Stag::fillCodeLocations() {
   // these part is left as is for self-documenting purposes
   for (int i = 0; i < 4; i++) {
     codeLocs[0 + i * 12] = createMatFromPolarCoords(
-        0.088363142525988, 0.785398163397448 + i * HALF_PI, innerCircleRadius);
+          0.088363142525988, 0.785398163397448 + i * HALF_PI, innerCircleRadius);
 
     codeLocs[1 + i * 12] = createMatFromPolarCoords(
-        0.206935928182607, 0.459275804122858 + i * HALF_PI, innerCircleRadius);
+          0.206935928182607, 0.459275804122858 + i * HALF_PI, innerCircleRadius);
     codeLocs[2 + i * 12] = createMatFromPolarCoords(
-        0.206935928182607, HALF_PI - 0.459275804122858 + i * HALF_PI,
-        innerCircleRadius);
+          0.206935928182607, HALF_PI - 0.459275804122858 + i * HALF_PI,
+          innerCircleRadius);
 
     codeLocs[3 + i * 12] = createMatFromPolarCoords(
-        0.313672146827381, 0.200579720495241 + i * HALF_PI, innerCircleRadius);
+          0.313672146827381, 0.200579720495241 + i * HALF_PI, innerCircleRadius);
     codeLocs[4 + i * 12] = createMatFromPolarCoords(
-        0.327493143484516, 0.591687617505840 + i * HALF_PI, innerCircleRadius);
+          0.327493143484516, 0.591687617505840 + i * HALF_PI, innerCircleRadius);
     codeLocs[5 + i * 12] = createMatFromPolarCoords(
-        0.327493143484516, HALF_PI - 0.591687617505840 + i * HALF_PI,
-        innerCircleRadius);
+          0.327493143484516, HALF_PI - 0.591687617505840 + i * HALF_PI,
+          innerCircleRadius);
     codeLocs[6 + i * 12] = createMatFromPolarCoords(
-        0.313672146827381, HALF_PI - 0.200579720495241 + i * HALF_PI,
-        innerCircleRadius);
+          0.313672146827381, HALF_PI - 0.200579720495241 + i * HALF_PI,
+          innerCircleRadius);
 
     codeLocs[7 + i * 12] = createMatFromPolarCoords(
-        0.437421957035861, 0.145724938287167 + i * HALF_PI, innerCircleRadius);
+          0.437421957035861, 0.145724938287167 + i * HALF_PI, innerCircleRadius);
     codeLocs[8 + i * 12] = createMatFromPolarCoords(
-        0.437226762361658, 0.433363129825345 + i * HALF_PI, innerCircleRadius);
+          0.437226762361658, 0.433363129825345 + i * HALF_PI, innerCircleRadius);
     codeLocs[9 + i * 12] = createMatFromPolarCoords(
-        0.430628029742607, 0.785398163397448 + i * HALF_PI, innerCircleRadius);
+          0.430628029742607, 0.785398163397448 + i * HALF_PI, innerCircleRadius);
     codeLocs[10 + i * 12] = createMatFromPolarCoords(
-        0.437226762361658, HALF_PI - 0.433363129825345 + i * HALF_PI,
-        innerCircleRadius);
+          0.437226762361658, HALF_PI - 0.433363129825345 + i * HALF_PI,
+          innerCircleRadius);
     codeLocs[11 + i * 12] = createMatFromPolarCoords(
-        0.437421957035861, HALF_PI - 0.145724938287167 + i * HALF_PI,
-        innerCircleRadius);
+          0.437421957035861, HALF_PI - 0.145724938287167 + i * HALF_PI,
+          innerCircleRadius);
   }
 
   double borderDist = 0.045;

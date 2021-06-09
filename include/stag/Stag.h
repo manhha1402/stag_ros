@@ -41,7 +41,7 @@ class Stag {
   Stag(int libraryHD = 15, int errorCorrection = 7, bool inKeepLogs = false);
   void detectMarkers(cv::Mat inImage);
   cv::Mat drawMarkers();
-  // void logResults(string path = "");
+  void logResults(string path = "");
   vector<Marker> getMarkerList() const { return markers; }
 };
 

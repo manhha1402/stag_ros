@@ -121,7 +121,7 @@ target_link_libraries(stag_node
 ###########
 # INSTALL #
 ###########
-install(DIRECTORY common/include/${PROJECT_NAME}/
+install(DIRECTORY include/${PROJECT_NAME}/
     DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
     )
 
