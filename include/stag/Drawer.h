@@ -8,6 +8,7 @@
 #include "stag/ED/EdgeMap.h"
 #include "stag/QuadDetector.h"
 #include "stag/Marker.h"
+namespace stag {
 
 using std::string;
 
@@ -36,5 +37,5 @@ class Drawer {
   cv::Mat drawEllipses(const string& path, cv::Mat image,
                        const vector<Marker>& markers);
 };
-
+} // namespace stag
 #endif

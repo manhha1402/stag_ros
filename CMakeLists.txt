@@ -6,7 +6,16 @@ add_compile_options(-std=c++14)
 set(CMAKE_BUILD_TYPE Release)
 
 find_package(OpenCV REQUIRED NO_MODULE PATHS /usr/local NO_DEFAULT_PATH)
-find_package(PkgConfig REQUIRED)
+#find_package(PkgConfig REQUIRED)
+find_package(Eigen3 REQUIRED NO_MODULE)
+if(NOT TARGET Eigen3::Eigen)
+    find_package(Threads REQUIRED)
+    add_library(Eigen3::Eigen IMPORTED INTERFACE)
+    set_property(TARGET Eigen3::Eigen
+                 PROPERTY INTERFACE_COMPILE_DEFINITIONS ${EIGEN3_DEFINITIONS})
+    set_property(TARGET Eigen3::Eigen
+                 PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${EIGEN3_INCLUDE_DIRS})
+endif()
 
 ################
 # Dependencies #
@@ -46,6 +55,7 @@ catkin_package(
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
+  ${Eigen3_INCLUDE_DIRS}
   ${OpenCV_INCLUDE_DIRS}
 )
 
@@ -74,6 +84,7 @@ add_library(stag_core
   src/stag/ED/MyMath.cpp
   src/stag/ED/NFA.cpp
   src/stag/ED/ValidateEdgeSegments.cpp
+  src/stag/stag_pose.cpp
 )
 
 add_library(stag_nodelet
@@ -100,6 +111,7 @@ add_dependencies(stag_node
 ## Links
 target_link_libraries(stag_core
   ${OpenCV_LIBS}
+  Eigen3::Eigen
 )
 
 target_link_libraries(stag_nodelet

@@ -13,6 +13,7 @@
 
 // Burak - suppresses _CRT_SECURE_NO_DEPRECATE warnings
 #pragma warning(disable : 4996)
+namespace stag {
 
 /*
 RGB 2 XYZ
@@ -1613,4 +1614,6 @@ void StdRGB2LabOne(unsigned char r, unsigned char g, unsigned char bl,
 #endif
 
 // Burak - restores _CRT_SECURE_NO_DEPRECATE warnings
+} // namespace stag
+
 #pragma warning(default : 4996)

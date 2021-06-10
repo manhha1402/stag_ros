@@ -2,7 +2,7 @@
 #define EDGE_MAP_H
 
 #include <memory.h>
-
+namespace stag {
 enum GradientOperator {
   PREWITT_OPERATOR = 101,
   SOBEL_OPERATOR = 102,
@@ -79,5 +79,6 @@ struct EdgeMap {
     return map2;
   }  // end-clone
 };
+} // namespace stag
 
 #endif

@@ -5,6 +5,7 @@
 
 #include "stag/ED/EDLines.h"
 #include "stag/ED/EdgeMap.h"
+namespace stag {
 
 class EDInterface {
   EdgeMap* edgeMap = NULL;
@@ -26,5 +27,5 @@ class EDInterface {
   cv::Point2d intersectionOfLineSegments(const LineSegment& line1,
                                          const LineSegment& line2);
 };
-
+} // namespace stag
 #endif

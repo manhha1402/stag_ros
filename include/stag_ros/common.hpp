@@ -27,7 +27,7 @@ SOFTWARE.
 #include <vector>
 // #include <cv.hpp>
 #include <opencv2/opencv.hpp>
-
+using namespace std;
 namespace stag_ros {
 struct Common {
   static void solvePnpSingle(const std::vector<cv::Point2d> &img,
@@ -57,12 +57,12 @@ struct Common {
     tVec.convertTo(output.col(3), CV_64F);
   }
 
-  static void publishTransform(const vector<tf::Transform> &tf,
+  static void publishTransform(const std::vector<tf::Transform> &tf,
                                const ros::Publisher &pub,
                                const std_msgs::Header &hdr,
-                               const string &tag_tf_prefix,
-                               const vector<string> &frame_id,
-                               const vector<int> &marker_id,
+                               const std::string &tag_tf_prefix,
+                               const std::vector<std::string> &frame_id,
+                               const std::vector<int> &marker_id,
                                const bool &pub_tf) {
     stag_ros::STagMarkerArray d_array;
 
@@ -109,5 +109,5 @@ struct Common {
       return true;
   }
 
-};  // namespace stag_ros
+};
 }  // namespace stag_ros

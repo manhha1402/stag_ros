@@ -4,6 +4,7 @@
 #include <math.h>
 
 #include "stag/ED/ValidateEdgeSegments.h"
+namespace stag {
 
 #define MAX_GRAD_VALUE 128 * 256
 
@@ -1190,3 +1191,4 @@ void ValidateEdgeSegments(EdgeMap *map, unsigned char *srcImg,
 
 //   return noMaps;
 // }  // end-ValidateEdgeSegmentsWithGradientMapMultipleDiv
+} // namespace stag

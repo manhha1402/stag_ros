@@ -2,6 +2,7 @@
 #define UTILITY_H
 
 #include <opencv2/opencv.hpp>
+namespace stag {
 
 // use this when the pixel is guaranteed to be in the image boundaries
 unsigned char readPixelUnsafe(const cv::Mat& image, const cv::Point2i& p);
@@ -14,5 +15,5 @@ unsigned char readPixelSafeBilinear(const cv::Mat& image, const cv::Point2d& p);
 double crossProduct(const cv::Point2d& p1, const cv::Point2d& p2);
 
 double squaredDistance(const cv::Point2d& p1, const cv::Point2d& p2);
-
+} // namespace stag
 #endif

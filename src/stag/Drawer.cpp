@@ -1,5 +1,6 @@
 #include "stag/Drawer.h"
 #include "stag/colors.h"
+namespace stag {
 
 using cv::Mat;
 using cv::Point2d;
@@ -310,3 +311,4 @@ cv::Mat Drawer::drawEllipses(const string& path, Mat image,
   // vector<int> compressionParams = {cv::IMWRITE_PNG_COMPRESSION, 0 };
   // cv::imwrite(path, bgrMat, compressionParams);
 }
+} // namespace stag

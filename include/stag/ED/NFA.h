@@ -1,6 +1,6 @@
 #ifndef NFA_H
 #define NFA_H
-
+namespace stag {
 ///-----------------------------------------------
 /// Lookup table (LUT) for NFA computation
 ///
@@ -25,5 +25,6 @@ struct NFALUT {
 ///
 bool checkValidationByNFA(int n, int k, double prob, double logNT);
 bool checkValidationByNFA(int n, int k, NFALUT *lut);
+} // namespace stag
 
 #endif

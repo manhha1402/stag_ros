@@ -2,7 +2,7 @@
 #define ED_H
 
 #include "stag/ED/EdgeMap.h"
-
+namespace stag {
 // /// Detect Edges by Edge Drawing (ED). smoothingSigma must be >= 1.0
 // EdgeMap *DetectEdgesByED(unsigned char *srcImg, int width, int height,
 //                          GradientOperator op = PREWITT_OPERATOR,
@@ -119,5 +119,6 @@ EdgeMap *DetectEdgesByEDPF(unsigned char *srcImg, int width, int height,
 // EdgeMap *DetectEdgesByED11(unsigned char *ch1Img, unsigned char *ch2Img,
 //                            unsigned char *ch3Img, int width, int height,
 //                            double smoothingSigma);
+} // namespace stag
 
 #endif

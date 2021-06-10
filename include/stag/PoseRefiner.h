@@ -4,6 +4,7 @@
 #include "stag/EDInterface.h"
 #include "stag/Marker.h"
 #include "stag/EDInterface.h"
+namespace stag {
 
 class PoseRefiner {
   bool checkIfPointInQuad(const Marker& marker, const cv::Point2d& p);
@@ -12,5 +13,5 @@ class PoseRefiner {
  public:
   void refineMarkerPose(EDInterface* edInterface, Marker& marker);
 };
-
+} // namespace stag
 #endif

@@ -4,6 +4,7 @@
 #include <vector>
 #include "stag/EDInterface.h"
 #include "stag/Quad.h"
+namespace stag {
 
 using std::vector;
 
@@ -72,5 +73,5 @@ class QuadDetector {
 
   const vector<Quad>& getDistortedQuads() const;
 };
-
+} // namespace stag
 #endif

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "stag/ED/LineSegment.h"
+namespace stag {
 
 ///------------------------------------------------------------------
 /// Rounds a double number to its closest integer part.
@@ -731,3 +732,4 @@ void LineFit(double *x, double *y, int count, double *a, double *b,
   *a = (Sxx * Sy - Sx * Sxy) / D;
   *b = (S * Sxy - Sx * Sy) / D;
 }  // end-LineFit
+} // namespace stag

@@ -2,7 +2,7 @@
 #define TIMER_H
 
 #include <windows.h>
-
+namespace stag {
 class Timer {
  private:
   __int64 freq, tStart, tStop;
@@ -29,5 +29,6 @@ class Timer {
     return ((double)(tStop - tStart) / (double)freq) * 1e3;
   }  // end-Elapsed
 };
+} // namespace stag
 
 #endif

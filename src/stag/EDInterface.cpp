@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <vector>
+namespace stag {
 
 using std::vector;
 using std::max;
@@ -182,3 +183,4 @@ Point2d EDInterface::intersectionOfLineSegments(const LineSegment& line1,
   }
   return inters;
 }
+} // namespace stag

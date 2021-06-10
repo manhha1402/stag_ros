@@ -1,4 +1,5 @@
 #include "stag/utility.h"
+namespace stag {
 
 using cv::Mat;
 using cv::Point2i;
@@ -61,3 +62,4 @@ double crossProduct(const Point2d& p1, const Point2d& p2) {
 double squaredDistance(const Point2d& p1, const Point2d& p2) {
   return (p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y);
 }
+} // namespace stag

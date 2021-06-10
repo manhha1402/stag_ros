@@ -1,5 +1,6 @@
 #include "stag/Quad.h"
 #include "stag/utility.h"
+namespace stag {
 
 using cv::Point2d;
 using cv::Point3d;
@@ -154,3 +155,4 @@ Quad::Quad(const Quad &q) {
   H = q.H.clone();
   center = q.center;
 }
+} // namespace stag

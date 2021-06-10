@@ -60,7 +60,7 @@ void StagNodelet::onInit() {
 
   // Initialize Stag
   try {
-    stag = new Stag(stag_library, error_correction, false);
+    stag = new stag::Stag(stag_library, error_correction, false);
   } catch (const std::invalid_argument &e) {
     std::cout << e.what() << std::endl;
     exit(-1);
@@ -139,7 +139,7 @@ void StagNodelet::imageCallback(const sensor_msgs::ImageConstPtr &msg) {
 
     // Process the image to find the markers
     stag->detectMarkers(gray);
-    std::vector<Marker> markers = stag->getMarkerList();
+    std::vector<stag::Marker> markers = stag->getMarkerList();
 
     // Publish debug image
     if (debug_images) {
@@ -209,7 +209,7 @@ void StagNodelet::imageCallback(const sensor_msgs::ImageConstPtr &msg) {
 
       // Bundles
       std::vector<tf::Transform> bundle_transforms;
-      std::vector<string> bundle_frame_ids;
+      std::vector<std::string> bundle_frame_ids;
       std::vector<int> bundle_ids;
       for (size_t bi = 0; bi < bundles.size(); ++bi) {
         if (bundle_pose[bi].empty()) continue;
@@ -240,7 +240,7 @@ void StagNodelet::imageCallback(const sensor_msgs::ImageConstPtr &msg) {
 
       // Markers
       std::vector<tf::Transform> marker_transforms;
-      std::vector<string> marker_frame_ids;
+      std::vector<std::string> marker_frame_ids;
       std::vector<int> marker_ids;
       for (size_t ti = 0; ti < tags.size(); ++ti) {
         if (tag_pose[ti].empty()) continue;

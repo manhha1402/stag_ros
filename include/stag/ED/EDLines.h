@@ -5,7 +5,7 @@
 // Burak - added EdgeMap.h because of the change in function arguments
 #include "stag/ED/EdgeMap.h"
 #include "stag/ED/LineSegment.h"
-
+namespace stag {
 ///----------------------------------------------
 /// Simple class to manipulate line segments
 ///
@@ -116,5 +116,6 @@ EDLines *DetectLinesByEDPF(EdgeMap *&map, unsigned char *srcImg, int width,
 
 /// Dump lines to file
 // void DumpLines2File(EDLines *lines, char *fname);
+} // namespace stag
 
 #endif

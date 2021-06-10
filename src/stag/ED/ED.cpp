@@ -14,6 +14,7 @@
 #include "stag/ED/ImageSmooth.h"
 #include "stag/ED/GradientOperators.h"
 #include "stag/ED/ValidateEdgeSegments.h"
+namespace stag {
 
 // #include "stag/ED/Utilities.h"
 // #include "Timer.h"
@@ -1219,3 +1220,4 @@ static void ScaleImage(unsigned char *srcImg, int width, int height) {
 
 //   return map;
 // }  // end-DetectEdgesByED10V
+} // namespace stag

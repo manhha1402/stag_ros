@@ -3,7 +3,7 @@
 
 #include <opencv/cv.h>
 #include <opencv/cxcore.h>
-
+namespace stag {
 /// Given an image of size widthxheight in srcImg, smooths the image using a
 /// gaussian filter (cvSmooth) and copies the smoothed image to smoothImg If
 /// sigma=1.0, then calls cvSmooth(srcImg, smoothedImg, CV_GAUSSIAN, 5, 5); This
@@ -12,5 +12,6 @@
 ///
 void SmoothImage(IplImage *srcImg, unsigned char *smoothImg,
                  double sigma = 1.0);
+} // namespace stag
 
 #endif

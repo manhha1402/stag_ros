@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <opencv2/opencv.hpp>
+namespace stag {
 
 using std::vector;
 
@@ -22,5 +23,5 @@ class Quad {
   Quad(const Quad &q);
   void estimateHomography();
 };
-
+} // namespace stag
 #endif

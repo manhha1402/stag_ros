@@ -4,6 +4,7 @@
 #include <vector>
 #include <bitset>
 #include "stag/MarkerIDs.h"
+namespace stag {
 
 using std::vector;
 using std::bitset;
@@ -16,10 +17,10 @@ class Decoder {
 
   vector<Codeword> codewords;
 
- public:
+public:
   Decoder() {}
   Decoder(int hd);
   bool decode(const Codeword& c, int errCorr, int& id, int& shift);
 };
-
+} // namespace stag
 #endif

@@ -2,7 +2,7 @@
 #define VALIDATE_EDGE_SEGMENTS_H
 
 #include "stag/ED/EdgeMap.h"
-
+namespace stag {
 /// Validate the edge segments using the Helmholtz principle
 void ValidateEdgeSegments(EdgeMap *map, unsigned char *srcImg,
                           double divForTestSegment);
@@ -42,5 +42,6 @@ void ValidateEdgeSegments(EdgeMap *map, unsigned char *srcImg,
 // int ValidateEdgeSegmentsWithGradientMapMultipleDiv(EdgeMap *map, short *gradImg,
 //                                                    unsigned char *maps[],
 //                                                    int noMaps);
+} // namespace stag
 
 #endif

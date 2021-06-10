@@ -2,7 +2,7 @@
 #define ED_INTERNALS_H
 
 #include "stag/ED/EdgeMap.h"
-
+namespace stag {
 /// Computes the anchors & links them. Returns the edge map
 EdgeMap *DoDetectEdgesByED(short *gradImg, unsigned char *dirImg, int width,
                            int height, int GRADIENT_THRESH,
@@ -18,5 +18,6 @@ EdgeMap *DoDetectEdgesByED(short *gradImg, unsigned char *dirImg, int width,
 /// Edge directions are NOT used during anchor linking
 // EdgeMap *DoDetectEdgesByED(short *gradImg, int width, int height,
 //                            int GRADIENT_THRESH);
+} // namespace stag
 
 #endif

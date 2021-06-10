@@ -54,7 +54,7 @@ class StagNode {
   bool getTagIndex(const int id, int &tag_index);
 
   // STag handle
-  Stag *stag;
+  stag::Stag *stag;
   int stag_library;
   int error_correction;
 

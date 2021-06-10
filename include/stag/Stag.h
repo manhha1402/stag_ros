@@ -7,6 +7,7 @@
 #include "stag/Marker.h"
 #include "stag/Decoder.h"
 #include "stag/PoseRefiner.h"
+namespace stag {
 
 class Stag {
   // if keepLogs is true, keep the intermediate results of the detection
@@ -24,7 +25,7 @@ class Stag {
   vector<cv::Mat> whiteLocs;
 
   cv::Mat image;
-  vector<Marker> markers;
+
   vector<Quad> falseCandidates;
 
   // take readings from 48 code locations, 12 black border locations, and 12
@@ -38,11 +39,12 @@ class Stag {
                                    double circleRadius);
 
  public:
+  vector<Marker> markers;
   Stag(int libraryHD = 15, int errorCorrection = 7, bool inKeepLogs = false);
   void detectMarkers(cv::Mat inImage);
   cv::Mat drawMarkers();
   void logResults(string path = "");
   vector<Marker> getMarkerList() const { return markers; }
 };
-
+} // namespace stag
 #endif

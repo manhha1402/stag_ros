@@ -5,7 +5,7 @@
 #include <opencv/cv.h>
 #include <opencv/cxcore.h>
 #include "stag/ED/EdgeMap.h"
-
+namespace stag {
 void RGB2LabDeneme(unsigned char *redImg, unsigned char *greenImg,
                    unsigned char *blueImg, unsigned char *LImg,
                    unsigned char *aImg, unsigned char *bImg, int width,
@@ -163,5 +163,6 @@ struct ColorGenerator {
     if (color > 14) color = 0;
   }  // end-getNextColor
 };
+} // namespace stag
 
 #endif

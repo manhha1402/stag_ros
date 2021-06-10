@@ -4,6 +4,7 @@
 #include <limits.h>
 
 #include "stag/ED/EDInternals.h"
+namespace stag {
 
 /// Special defines
 #define EDGE_VERTICAL 1
@@ -3422,3 +3423,4 @@ EdgeMap *DoDetectEdgesByED(short *gradImg, unsigned char *dirImg, int width,
 
 //   return map;
 // }  // end-DoDetectEdgesByED
+} // namespace stag

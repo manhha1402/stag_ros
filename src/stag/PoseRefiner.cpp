@@ -2,6 +2,7 @@
 #include "stag/PoseRefiner.h"
 #include "stag/Ellipse.h"
 #include "stag/utility.h"
+namespace stag {
 
 using cv::Point2d;
 using cv::Mat;
@@ -256,3 +257,4 @@ class Refine : public cv::MinProblemSolver::Function {
     return std::accumulate(errors.begin(), errors.end(), (double)0);
   }
 };
+} // namespace stag

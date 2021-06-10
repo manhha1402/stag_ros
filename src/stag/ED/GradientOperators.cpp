@@ -4,6 +4,7 @@
 #include "stag/ED/GradientOperators.h"
 // #include "stag/ED/GradientOperatorsCV.h"
 // #include "stag/ED/Utilities.h"
+namespace stag {
 
 /// Special defines
 #define EDGE_VERTICAL 1
@@ -2158,3 +2159,4 @@ void ComputeGradientMapByPrewitt(unsigned char *smoothImg, short *gradImg,
 //   for (int i = 0; i < width * height; i++)
 //     gradImg[i] = (short)(gradImg[i] * scale);
 // }  // end-ComputeGradientMapByDiZenzo5x5
+} // namespace stag
